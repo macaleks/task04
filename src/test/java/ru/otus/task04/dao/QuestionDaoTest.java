@@ -2,6 +2,9 @@ package ru.otus.task04.dao;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.MessageSource;
 import ru.otus.task04.builder.QuestionBuilder;
 import ru.otus.task04.config.AppProps;
@@ -15,11 +18,15 @@ import java.util.function.Consumer;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 public class QuestionDaoTest {
 
-    Parser parser = mock(Parser.class);
-    AppProps props = mock(AppProps.class);
-    MessageSource messageSource = mock(MessageSource.class);
+    @Mock
+    Parser parser;
+    @Mock
+    AppProps props;
+    @Mock
+    MessageSource messageSource;
 
     @Test
     public void test() {

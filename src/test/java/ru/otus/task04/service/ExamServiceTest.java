@@ -1,6 +1,9 @@
 package ru.otus.task04.service;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import ru.otus.task04.builder.AnswerBuilder;
 import ru.otus.task04.builder.QuestionBuilder;
 import ru.otus.task04.dao.AnswerDao;
@@ -16,11 +19,16 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 public class ExamServiceTest {
-    AnswerDao answerDao = mock(AnswerDao.class);
-    QuestionDao questionDao = mock(QuestionDao.class);
-    ScannerService scanner = mock(ScannerService.class);
-    MessageService service = mock(MessageService.class);
+    @Mock
+    AnswerDao answerDao;
+    @Mock
+    QuestionDao questionDao;
+    @Mock
+    ScannerService scanner;
+    @Mock
+    MessageService service;
 
     @Test
     public void test() {
