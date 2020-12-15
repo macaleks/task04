@@ -41,7 +41,6 @@ public class ExamServiceTest {
                 answer(3, "answer3", true)));
         doReturn(answerDaoReturn).when(answerDao).getMapOfAnswers();
 
-        doReturn("Olaf", "Swenson").when(scanner).next();
         doReturn(0, 0, 1, 0, 1, 2).when(scanner).nextInt();
 
         doNothing().when(service).writeMessage(any(), any());
@@ -54,7 +53,7 @@ public class ExamServiceTest {
         }).when(service).getMessage(eq("studentHas"), any(), any());
         doReturn("passed").when(service).getMessage("passed");
 
-        assertThat(examService.testStudent()).isEqualTo("Olaf Swenson has passed");
+        assertThat(examService.testStudent("Olaf", "Swenson")).isEqualTo("Olaf Swenson has passed");
 
     }
 

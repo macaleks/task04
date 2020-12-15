@@ -14,7 +14,7 @@ import java.util.Map;
 import static java.util.stream.Collectors.toMap;
 
 @Service
-public class QuestionDaoImpl implements QuestionDao{
+public class QuestionDaoImpl implements QuestionDao {
 
     private final Parser<Question> parser;
     private final String filename;

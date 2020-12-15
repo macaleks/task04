@@ -27,16 +27,12 @@ public class ExamService {
         this.service = service;
     }
 
-    public String testStudent() {
+    public String testStudent(String name, String surname) {
         Map<Integer, List<Answer>> allAnswers = answerDao.getMapOfAnswers();
         Map<Integer, Question> allQuestions = questionDao.getMapOfQuestions();
         Student student = new Student();
-
-        service.writeMessage("greeting");
-        service.writeMessage("enterName");
-        student.setName(scanner.next());
-        service.writeMessage("enterSurname");
-        student.setSurname(scanner.next());
+        student.setName(name);
+        student.setSurname(surname);
 
         service.writeMessage("askToAnswerQuestions", student.getName(), student.getSurname());
         service.emptyLine();
